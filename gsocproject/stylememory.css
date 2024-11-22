@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #18012d;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: #48028a;
+    padding: 40px 60px;
+}
+
+h2 {
+    font-size: 3em;
+    color: rgb(195, 117, 211);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.reset {
+    padding: 20px 35px;
+    color: #101008;
+    background: #cea7f4;
+    border: none;
+    font-size: 1.6em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.reset:focus {
+    color: rgb(220, 32, 32);
+    background: #b07fde;
+}
+
+.game {
+    width: 430px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.item { 
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background-color: #f1e5fd;
+    transition: 0.25s;
+}
+.boxOpen {
+    transform: rotateY(180deg);}
+
+.card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background-color: #f1e5fd;
+    transition: 0.25s;
+}
+
+.card.boxOpen {
+    transform: rotateY(180deg);
+}
+
+.card::after {
+    content: " ";
+    position: absolute;
+    inset: 0;
+    background: #48028a;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.boxOpen::after,
+.boxMatch::after {
+    transform: rotateY(180deg);
+}
